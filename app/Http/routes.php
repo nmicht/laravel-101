@@ -20,10 +20,8 @@ Route::get('otro', function () {
   return 'Otra vista';
 });
 
-//Agregando otra ruta
-Route::get('con-ruta', function () {
-  return view('vista-nueva');
-});
+//Agregando otra ruta que manda a llamar un controlador y su método
+Route::get('con-ruta', 'MiControlador@index');
 
 //Agregando una ruta para una lista
 Route::get('lista', function () {
