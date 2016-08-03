@@ -19,3 +19,8 @@ Route::get('/', function () {
 Route::get('otro', function () {
   return 'Otra vista';
 });
+
+//Agregando otra ruta
+Route::get('con-ruta', function () {
+  return view('vista-nueva');
+});
