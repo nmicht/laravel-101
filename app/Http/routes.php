@@ -24,3 +24,11 @@ Route::get('otro', function () {
 Route::get('con-ruta', function () {
   return view('vista-nueva');
 });
+
+//Agregando una ruta para una lista
+Route::get('lista', function () {
+  $lista = ['Platano', 'Pera', 'Manzana'];
+
+  //Paso el valor a la vista como un array
+  return view('lista', compact('lista'));
+});
