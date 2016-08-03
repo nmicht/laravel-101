@@ -36,4 +36,4 @@ Route::get('lista', function () {
 //Ruta con parámetros
 Route::get('test/{param}', function ($param) {
   return $param;
-});
+})->where('param','[0-9]+'); //Valido para aceptar solo digitos
