@@ -16,7 +16,10 @@ class FrutasControlador extends Controller
      */
     public function index()
     {
-        //
+        $lista = ['Platano', 'Pera', 'Manzana'];
+
+        //Paso el valor a la vista como un array
+        return view('lista', compact('lista'));
     }
 
     /**
