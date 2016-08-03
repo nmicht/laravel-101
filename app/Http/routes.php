@@ -30,8 +30,5 @@ Route::get('lista', function () {
   $lista = ['Platano', 'Pera', 'Manzana'];
 
   //Paso el valor a la vista como un array
-  //return view('lista', compact('lista'));
-
-  //Paso el valor a la vista con with mas elegante
-  return view('lista')->withLista($lista);
+  return view('lista', compact('lista'));
 });

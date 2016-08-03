@@ -7,9 +7,9 @@
   <body>
     <h1>Lista de frutas</h1>
     <ul>
-    <?php foreach ($lista as $elemento) : ?>
-      <li><?= $elemento ?></li>
-    <?php endforeach; ?>
+    @foreach ($lista as $elemento)
+      <li>{{$elemento}}</li>
+    @endforeach
     </ul>
   </body>
 </html>
