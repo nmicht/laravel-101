@@ -32,3 +32,8 @@ Route::get('lista', function () {
   //Paso el valor a la vista como un array
   return view('lista', compact('lista'));
 });
+
+//Ruta con parámetros
+Route::get('test/{param}', function ($param) {
+  return $param;
+});
