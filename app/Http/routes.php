@@ -30,3 +30,6 @@ Route::get('lista', 'FrutasControlador@index');
 Route::get('test/{param}', function ($param) {
   return $param;
 })->where('param','[0-9]+'); //Valido para aceptar solo digitos
+
+//Ruta para lista los todos
+Route::get('todos', 'TodosController@index');
