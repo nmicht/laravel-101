@@ -14,6 +14,8 @@ class TablaDeTodos extends Migration
     {
         Schema::create('todos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
