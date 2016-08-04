@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use DB; //namespace para el query builder
+use \App\Models\Todo;
 
 class TodosController extends Controller
 {
@@ -18,9 +18,9 @@ class TodosController extends Controller
      */
     public function index()
     {
-        //utilizo el query builder para obtener todos los todos
-        $data = DB::table('todos')->get();
-        //le paso a la vista el resultado del query builder
+        //utilizo la clase todo de eloquent
+        $data = Todo::all();
+        //le paso a la vista el resultado que arroja eloquent
         return view('todos.index',compact('data'));
     }
 
@@ -53,9 +53,9 @@ class TodosController extends Controller
      */
     public function show($id)
     {
-        //utilizo el query builder para obtener el todo
-        $data = DB::table('todos')->where('id',$id)->first();
-        //le paso a la vista el resultado del query builder
+        //utilizo el modelo Todo y busco por id
+        $data = Todo::find($id);
+        //le paso a la vista el resultado que arroja eloquent
         return view('todos.single',compact('data'));
     }
 
