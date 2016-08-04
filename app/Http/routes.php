@@ -33,3 +33,6 @@ Route::get('test/{param}', function ($param) {
 
 //Ruta para lista los todos
 Route::get('todos', 'TodosController@index');
+
+//Ruta para mostrar un todo
+Route::get('todos/{id}', 'TodosController@show');

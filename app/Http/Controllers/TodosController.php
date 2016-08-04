@@ -53,7 +53,10 @@ class TodosController extends Controller
      */
     public function show($id)
     {
-        //
+        //utilizo el query builder para obtener el todo
+        $data = DB::table('todos')->where('id',$id)->first();
+        //le paso a la vista el resultado del query builder
+        return view('todos.single',compact('data'));
     }
 
     /**
