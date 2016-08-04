@@ -36,3 +36,6 @@ Route::get('todos', 'TodosController@index');
 
 //Ruta para mostrar un todo
 Route::get('todos/{id}', 'TodosController@show');
+
+//Binding de ruta con modelo
+Route::model('id','\App\Models\Todo');

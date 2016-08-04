@@ -51,12 +51,9 @@ class TodosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Todo $id)
     {
-        //utilizo el modelo Todo y busco por id
-        $data = Todo::find($id);
-        //le paso a la vista el resultado que arroja eloquent
-        return view('todos.single',compact('data'));
+        return $id;
     }
 
     /**
