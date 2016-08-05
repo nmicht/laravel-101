@@ -5,6 +5,6 @@
     <title></title>
   </head>
   <body>
-    <h1>ToDo: {{$data->name}}</h1>
+    <h1>ToDo: {{$todo->name}}</h1>
   </body>
 </html>

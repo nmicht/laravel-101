@@ -51,9 +51,9 @@ class TodosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Todo $id)
+    public function show(Todo $todo)
     {
-        return $id;
+        return view('todos.single')->with('todo',$todo);
     }
 
     /**
