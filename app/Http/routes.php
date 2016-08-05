@@ -42,5 +42,17 @@ Route::get('todos', 'TodosController@index');
 //Ruta para mostrar un todo
 Route::get('todos/{todo}', 'TodosController@show');
 
+//Ruta para mostrar la vista de edición de un todo
+Route::get('todos/{todo}/edit', 'TodosController@edit');
+
 //Ruta para guardar un todo
 Route::post('todos','TodosController@store');
+
+//Ruta para editar un todo
+Route::put('todos/{todo}','TodosController@update');
+
+//Ruta para eliminar un todo
+Route::delete('todos/{todo}','TodosController@destroy');
+
+//Ruta para cambiar el estatus de un todo
+Route::patch('todos/{todo}','TodosController@toggl');

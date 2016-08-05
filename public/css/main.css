@@ -1,0 +1,15 @@
+.no-button{
+  background: none;
+  border: none;
+}
+
+.completado{
+  text-decoration: line-through;
+}
+
+footer{
+  margin-top: 3em;
+  padding-top: 3em;
+  border-top: 1px solid #eee;
+  text-align: center;
+}

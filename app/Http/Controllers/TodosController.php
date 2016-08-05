@@ -68,9 +68,9 @@ class TodosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Todo $todo)
     {
-        //
+        return view('todos.edit')->with('todo',$todo);
     }
 
     /**
@@ -80,9 +80,30 @@ class TodosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Todo $todo)
     {
-        //
+        $todo->update($request->all());
+
+        return redirect('todos');
+    }
+
+    /**
+     * Cambia el estatus del todo
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function toggl(Todo $todo)
+    {
+        if($todo->status)
+          $todo->status = false;
+        else {
+          $todo->status = true;
+        }
+
+        $todo->save();
+
+        return redirect('todos');
     }
 
     /**
@@ -91,8 +112,10 @@ class TodosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Todo $todo)
     {
-        //
+        $todo->delete();
+
+        return redirect('todos');
     }
 }
