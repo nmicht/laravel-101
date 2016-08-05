@@ -19,9 +19,9 @@ class TodosController extends Controller
     public function index()
     {
         //utilizo la clase todo de eloquent
-        $data = Todo::all();
+        $todos = Todo::all();
         //le paso a la vista el resultado que arroja eloquent
-        return view('todos.index',compact('data'));
+        return view('todos.index',compact('todos'));
     }
 
     /**

@@ -31,11 +31,16 @@ Route::get('test/{param}', function ($param) {
   return $param;
 })->where('param','[0-9]+'); //Valido para aceptar solo digitos
 
+//------------------- TODOS -----------------------
+
+//Binding de ruta con modelo
+Route::model('todo','\App\Models\Todo');
+
 //Ruta para lista los todos
 Route::get('todos', 'TodosController@index');
 
 //Ruta para mostrar un todo
 Route::get('todos/{todo}', 'TodosController@show');
 
-//Binding de ruta con modelo
-Route::model('todo','\App\Models\Todo');
+//Ruta para guardar un todo
+Route::post('todos','TodosController@store');
