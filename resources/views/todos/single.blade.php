@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>ToDo: {{$todo->name}}</h1>
-  </body>
-</html>
+@extends('todos.layout')
+
+@section('contenido')
+  <h1>ToDo: {{$todo->name}}</h1>
+@stop
