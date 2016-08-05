@@ -42,7 +42,13 @@ class TodosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Guardamos el elemento utilizando todo el request
+        //no me preocupo por cosas que no me interesan porque ya
+        //tengo fillable en el modelo
+        Todo::create($request->all());
+
+        //Regreso a la vista de la que venia
+        return back();
     }
 
     /**

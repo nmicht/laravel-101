@@ -17,6 +17,7 @@
   <div class="row">
     <div class="col-md-5 col-md-offset-3">
       <form class="" action="todos" method="post">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group">
           <label for="name">ToDo</label>
           <input type="text" name="name" value="" class="form-control">
