@@ -33,19 +33,27 @@
 
   <div class="row">
     <h1>Crear ToDos</h1>
-
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form class="" action="todos" method="post">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
       <div class="form-group">
         <label for="name">ToDo</label>
-        <input type="text" name="name" value="" class="form-control">
+        <input type="text" name="name" value="{{ old('name') }}" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="color">Color</label>
         <div id="cp2" class="input-group colorpicker-component">
-            <input type="text" value="#00AABB" name="color" class="form-control" />
+            <input type="text" value="{{ old('color') }}" name="color" class="form-control" />
             <span class="input-group-addon"><i></i></span>
         </div>
       </div>
