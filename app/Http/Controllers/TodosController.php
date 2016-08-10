@@ -59,6 +59,9 @@ class TodosController extends Controller
      */
     public function show(Todo $todo)
     {
+        //Cargamos la información de comentarios para que este dentro del objeto todo
+        $todo->load('comments');
+
         return view('todos.single')->with('todo',$todo);
     }
 

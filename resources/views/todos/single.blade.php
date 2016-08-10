@@ -20,6 +20,21 @@
 
   </form>
 
+  <!-- comentarios -->
+  @foreach ($todo->comments as $comment):
+  <div class="media">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object" src="https://api.adorable.io/avatars/50/abott@adorable.png" alt="...">
+      </a>
+    </div>
+    <div class="media-body">
+      <p>{{$comment->comment}}</p>
+      <p>{{$comment->created_at}}</p>
+    </div>
+  </div>
+  @endforeach
+
   <a href="/todos/{{$todo->id}}/edit"><i class="glyphicon glyphicon-pencil"></i></a>
 
   <form action="{{$todo->id}}" method="post" style="display: inline">
