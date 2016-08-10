@@ -61,7 +61,7 @@ class TodosController extends Controller
     {
         //Cargamos la información de comentarios para que este dentro del objeto todo
         $todo->load(['comments'=>function($query){
-          $query->orderBy('created_at','asc');
+          $query->orderBy('created_at','desc');
         }]);
 
         return view('todos.single')->with('todo',$todo);
