@@ -8,6 +8,18 @@
     Última edición el {{$todo->updated_at}}
   </p>
 
+  <a href="/todos/{{$todo->id}}/edit"><i class="glyphicon glyphicon-pencil"></i></a>
+
+  <form action="{{$todo->id}}" method="post" style="display: inline">
+      {{ method_field('DELETE') }}
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+      <button type="submit" class="no-button glyphicon glyphicon-trash"></button>
+  </form>
+
+  <a class="btn btn-default" href="/todos"><i class="glyphicon glyphicon-chevron-left"></i> Regresar</a>
+
+  <hr>
+  
   <form class="row" action="/todos/{{$todo->id}}/comment" method="post">
 
       <div class="input-group">
@@ -21,7 +33,7 @@
   </form>
 
   <!-- comentarios -->
-  @foreach ($todo->comments as $comment):
+  @foreach ($todo->comments as $comment)
   <div class="media">
     <div class="media-left">
       <a href="#">
@@ -32,16 +44,15 @@
       <p>{{$comment->comment}}</p>
       <p>{{$comment->created_at}}</p>
     </div>
+    <div class="">
+        <form action="/comments/{{$comment->id}}" method="post" style="display: inline">
+          {{ method_field('DELETE') }}
+          {{ csrf_field() }}
+          <button type="submit" class="no-button glyphicon glyphicon-trash"></button>
+        </form>
+
+    </div>
   </div>
   @endforeach
 
-  <a href="/todos/{{$todo->id}}/edit"><i class="glyphicon glyphicon-pencil"></i></a>
-
-  <form action="{{$todo->id}}" method="post" style="display: inline">
-    {{ method_field('DELETE') }}
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    <button type="submit" class="no-button glyphicon glyphicon-trash"></button>
-  </form>
-
-  <a class="btn btn-default" href="/todos"><i class="glyphicon glyphicon-chevron-left"></i> Regresar</a>
 @stop

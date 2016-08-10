@@ -35,6 +35,7 @@ Route::get('test/{param}', function ($param) {
 
 //Binding de ruta con modelo
 Route::model('todo','\App\Models\Todo');
+Route::model('comment','\App\Models\Comment');
 
 //Ruta para lista los todos
 Route::get('todos', 'TodosController@index');
@@ -59,3 +60,6 @@ Route::patch('todos/{todo}','TodosController@toggl');
 
 //Ruta para dar de alta un comentario
 Route::post('todos/{todo}/comment','CommentsController@store');
+
+//Ruta para eliminar un comentario
+Route::delete('comments/{comment}','CommentsController@destroy');
