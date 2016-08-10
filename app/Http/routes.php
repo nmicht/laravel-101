@@ -60,7 +60,10 @@ Route::group(['middleware' => 'auth'], function(){
     Route::delete('todos/{todo}','TodosController@destroy');
 
     //Ruta para cambiar el estatus de un todo
-    Route::patch('todos/{todo}','TodosController@toggl');
+    Route::patch('todos/{todo}', [
+        'middleware' => '\App\Http\Middleware\OfficeHours',
+        'uses' => 'TodosController@toggl'
+    ]);
 
     // ---------------- COMENTARIOS --------------------------------
     //
