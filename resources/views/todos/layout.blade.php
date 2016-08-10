@@ -10,6 +10,9 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
+          <span class="pull-right">Bienvenid@ {{ Auth::user()->name }}</span>
+        </div>
+        <div class="col-md-6 col-md-offset-3">
           @yield('contenido')
         </div>
       </div>
