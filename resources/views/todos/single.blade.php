@@ -12,7 +12,7 @@
 
       <div class="input-group">
         {{ csrf_field() }}
-        <input type="text" class="form-control" placeholder="Escribe un comentario...">
+        <input type="text" class="form-control" name="comment" placeholder="Escribe un comentario...">
         <span class="input-group-btn">
           <button class="btn btn-default" type="submit">OK</button>
         </span>
