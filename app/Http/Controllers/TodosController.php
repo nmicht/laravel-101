@@ -108,6 +108,9 @@ class TodosController extends Controller
 
         $todo->save();
 
+        session()->flash('flash_message','El ToDo ha cambiado de estatus satisfactoriamente');
+        session()->flash('flash_message_type','success');
+
         return redirect('todos');
     }
 

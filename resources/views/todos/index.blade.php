@@ -1,6 +1,14 @@
 @extends('todos.layout')
 
 @section('contenido')
+@if (session()->has('flash_message'))
+    <div class="alert alert-{{session()->get('flash_message_type')}} alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{ session()->get('flash_message') }}
+    </div>
+@endif
   <div class="row">
     <h1>Lista de todos</h1>
     @foreach ($todos as $todo)
