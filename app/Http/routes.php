@@ -56,3 +56,6 @@ Route::delete('todos/{todo}','TodosController@destroy');
 
 //Ruta para cambiar el estatus de un todo
 Route::patch('todos/{todo}','TodosController@toggl');
+
+//Ruta para dar de alta un comentario
+Route::post('todos/{todo}/comment','CommentsController@store');
