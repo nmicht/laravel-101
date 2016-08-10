@@ -23,6 +23,13 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+    //Agrego la ruta para cuando un usuario ya esta autenticado
+    protected $redirectPath = '/todos';
+
+    //Agrego la ruta para cuando un usuario NO esta autenticado
+    protected $loginPath = '/login';
+
+
     /**
      * Create a new authentication controller instance.
      *
