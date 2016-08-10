@@ -1,10 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class comment extends Model
+class Comment extends Model
 {
-    //
+    //Agrego los campos que tienen permisos de escritura
+    protected $fillable = ['comment','todo_id'];
 }
