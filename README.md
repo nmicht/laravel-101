@@ -85,3 +85,15 @@
  - Controlador
  - Usuarios
  - Autenticación manual
+
+ ---
+
+### Sesión 7
+
+1. Sesiones
+2. Flash
+3. Middlewares
+4. Manejo de Fechas
+5. Validador
+ - Validate
+ - Request
