@@ -47,7 +47,7 @@
   <div>
     <a class="btn btn-default" href="/todos"><i class="glyphicon glyphicon-chevron-left"></i> Regresar</a>
 
-    <form class="pull-right" action="{{$todo->id}}" method="post" style="display: inline; margin: 0 1em;">
+    <form class="pull-right" action="{{/$todo->id}}" method="post" style="display: inline; margin: 0 1em;">
       {{ method_field('DELETE') }}
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Eliminar</button>
