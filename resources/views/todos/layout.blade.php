@@ -10,7 +10,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <span class="pull-right">Bienvenid@ {{ Auth::user()->name }}</span>
+          <p class="pull-right">Bienvenid@ <span>{{ Auth::user()->name }}</span> <a href="/logout">Salir</a></p>
         </div>
         <div class="col-md-6 col-md-offset-3">
           @yield('contenido')
