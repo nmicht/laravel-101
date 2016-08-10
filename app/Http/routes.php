@@ -58,8 +58,16 @@ Route::delete('todos/{todo}','TodosController@destroy');
 //Ruta para cambiar el estatus de un todo
 Route::patch('todos/{todo}','TodosController@toggl');
 
+// ---------------- COMENTARIOS --------------------------------
+//
 //Ruta para dar de alta un comentario
 Route::post('todos/{todo}/comment','CommentsController@store');
 
 //Ruta para eliminar un comentario
 Route::delete('comments/{comment}','CommentsController@destroy');
+
+
+//------------------- AUTH --------------------------------
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
