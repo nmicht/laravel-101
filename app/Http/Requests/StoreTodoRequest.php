@@ -28,4 +28,16 @@ class StoreTodoRequest extends Request
             'name' => 'required|unique:todos'
         ];
     }
+
+    /**
+     * Método para arrojar los mensajes de error de la validacion
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => 'Es ilogico tener un todo sin el todo :S',
+            'name.unique'  => 'No pueden existir dos todos iguales',
+        ];
+    }
 }
