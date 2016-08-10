@@ -31,40 +31,45 @@ Route::get('test/{param}', function ($param) {
   return $param;
 })->where('param','[0-9]+'); //Valido para aceptar solo digitos
 
-//------------------- TODOS -----------------------
+
 
 //Binding de ruta con modelo
 Route::model('todo','\App\Models\Todo');
 Route::model('comment','\App\Models\Comment');
 
-//Ruta para lista los todos
-Route::get('todos', 'TodosController@index');
+//Esta es una ruta para que todo el proceso de comentarios y todos dependa de
+//autentitcación, es decir, si no esta loggeado, no se puede pasar a estas rutas
+Route::group(['middleware' => 'auth'], function(){
+    //------------------- TODOS -----------------------
+    //Ruta para lista los todos
+    Route::get('todos', 'TodosController@index');
 
-//Ruta para mostrar un todo
-Route::get('todos/{todo}', 'TodosController@show');
+    //Ruta para mostrar un todo
+    Route::get('todos/{todo}', 'TodosController@show');
 
-//Ruta para mostrar la vista de edición de un todo
-Route::get('todos/{todo}/edit', 'TodosController@edit');
+    //Ruta para mostrar la vista de edición de un todo
+    Route::get('todos/{todo}/edit', 'TodosController@edit');
 
-//Ruta para guardar un todo
-Route::post('todos','TodosController@store');
+    //Ruta para guardar un todo
+    Route::post('todos','TodosController@store');
 
-//Ruta para editar un todo
-Route::put('todos/{todo}','TodosController@update');
+    //Ruta para editar un todo
+    Route::put('todos/{todo}','TodosController@update');
 
-//Ruta para eliminar un todo
-Route::delete('todos/{todo}','TodosController@destroy');
+    //Ruta para eliminar un todo
+    Route::delete('todos/{todo}','TodosController@destroy');
 
-//Ruta para cambiar el estatus de un todo
-Route::patch('todos/{todo}','TodosController@toggl');
+    //Ruta para cambiar el estatus de un todo
+    Route::patch('todos/{todo}','TodosController@toggl');
 
-// ---------------- COMENTARIOS --------------------------------
-//
-//Ruta para dar de alta un comentario
-Route::post('todos/{todo}/comment','CommentsController@store');
+    // ---------------- COMENTARIOS --------------------------------
+    //
+    //Ruta para dar de alta un comentario
+    Route::post('todos/{todo}/comment','CommentsController@store');
 
-//Ruta para eliminar un comentario
-Route::delete('comments/{comment}','CommentsController@destroy');
+    //Ruta para eliminar un comentario
+    Route::delete('comments/{comment}','CommentsController@destroy');
+});
 
 
 //------------------- AUTH --------------------------------
