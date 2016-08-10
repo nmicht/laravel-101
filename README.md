@@ -43,3 +43,30 @@
 6. Eloquent
 7. Rutas con modelos
 
+---
+
+### Sesión 4
+
+1. Guardar con Eloquent
+ - Save
+ - Create
+2. Fillable y Guarded
+3. Layouts
+4. Gulp y Elixir
+5. Formularios
+ - Request
+ - CSRF
+ - Redirects
+6. Métodos put, patch y delete
+
+---
+
+### Sesión 5
+
+1. Ver los queries generados por el query builder (tinker)
+2. Algunos queries en general
+3. Relaciones
+ - Crear relación
+ - Llave foranea
+ - Método de la relación
+4. Agregar y crear recursos relacionados
