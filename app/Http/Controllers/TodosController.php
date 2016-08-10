@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\StoreTodoRequest;
 use App\Http\Controllers\Controller;
 
 use \App\Models\Todo;
@@ -40,12 +41,12 @@ class TodosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTodoRequest $request) //Cambiamos a que request sea del request que creamos
     {
         //Validamos el request antes de seguir con el proceso
-        $this->validate($request, [
-            'name' => 'required|unique:todos'
-        ]);
+        // $this->validate($request, [
+        //     'name' => 'required|unique:todos'
+        // ]);
 
         //Guardamos el elemento utilizando todo el request
         //no me preocupo por cosas que no me interesan porque ya
