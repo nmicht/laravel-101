@@ -70,3 +70,18 @@
  - Llave foranea
  - Método de la relación
 4. Agregar y crear recursos relacionados
+
+---
+
+### Sesión 6
+
+1. Usuarios
+ - Migrate
+ - bcrypt
+2. Eagger Loading
+3. Auth
+ - Rutas
+ - Vistas
+ - Controlador
+ - Usuarios
+ - Autenticación manual
