@@ -42,6 +42,11 @@ class TodosController extends Controller
      */
     public function store(Request $request)
     {
+        //Validamos el request antes de seguir con el proceso
+        $this->validate($request, [
+            'name' => 'required|unique:todos'
+        ]);
+
         //Guardamos el elemento utilizando todo el request
         //no me preocupo por cosas que no me interesan porque ya
         //tengo fillable en el modelo
