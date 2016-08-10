@@ -37,12 +37,17 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Todo $todo)
     {
         $data = $request->all();
 
         //Obtener el id del todo de la url que esta en todos/id/comment
-        $data['todo_id'] = $request->segment(2);
+        //$data['todo_id'] = $request->segment(2);
+
+        //Para evitar el paso anterior podemos inyectar el todo directo
+        //arriba en los parametros inyectamos el todo y laravel automáticamente
+        //lo toma
+        $data['todo_id'] = $todo->id;
 
         //Guardamos el elemento utilizando $data que ya tiene todo el request
         //y además le agregue el id desde la url
