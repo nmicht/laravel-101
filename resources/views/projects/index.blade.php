@@ -28,7 +28,7 @@
           <div class="panel-body">
             <ul>
                 @foreach ($project->todos as $todo)
-                <li>$todo->name</li>
+                <li>{{$todo->name}}</li>
                 @endforeach
             </ul>
           </div>

@@ -58,6 +58,14 @@
         </div>
       </div>
 
+      <fieldset>
+        <legend>Proyecto</legend>
+        @foreach ($projects as $project)
+        <input type="checkbox" name="project[]" value="{{$project->id}}"> {{$project->name}}<br>
+        @endforeach
+
+      </fieldset>
+
       <button type="submit" class="pull-right btn btn-default"><i class="glyphicon glyphicon-floppy-disk"></i> Crear</button>
 
     </form>

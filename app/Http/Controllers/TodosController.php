@@ -9,6 +9,7 @@ use App\Http\Requests\StoreTodoRequest;
 use App\Http\Controllers\Controller;
 
 use \App\Models\Todo;
+use \App\Models\Project;
 
 class TodosController extends Controller
 {
@@ -21,8 +22,10 @@ class TodosController extends Controller
     {
         //utilizo la clase todo de eloquent
         $todos = Todo::all();
+        $projects = Project::all();
+
         //le paso a la vista el resultado que arroja eloquent
-        return view('todos.index',compact('todos'));
+        return view('todos.index',compact('todos','projects'));
     }
 
     /**
@@ -51,7 +54,10 @@ class TodosController extends Controller
         //Guardamos el elemento utilizando todo el request
         //no me preocupo por cosas que no me interesan porque ya
         //tengo fillable en el modelo
-        Todo::create($request->all());
+        $todo = Todo::create($request->all());
+
+        //Guardamos la relación con todos los proyectos
+        $todo->projects()->attach($request->project);
 
         //Regreso a la vista de la que venia
         return back();
