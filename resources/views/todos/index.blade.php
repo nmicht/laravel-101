@@ -60,11 +60,26 @@
 
       <fieldset>
         <legend>Proyecto</legend>
-        @foreach ($projects as $project)
-        <input type="checkbox" name="project[]" value="{{$project->id}}"> {{$project->name}}<br>
-        @endforeach
+        @foreach ($projects as $key => $project)
 
+        <!-- si el id del proyecto existe en el arreglo, entonces marco el check -->
+        <input
+           type="checkbox"
+           name="project[]"
+           value="{{$project->id}}"
+           {{ in_array($project->id, old('project') ?: [] ) ? 'checked' : '' }}
+        />
+
+        {{$project->name}}<br>
+
+        @endforeach
+        <br>
       </fieldset>
+
+      <div class="form-group">
+        <label for="name">Etiqueta</label>
+        <input type="text" name="tag" value="{{ old('tag') }}" class="form-control">
+      </div>
 
       <button type="submit" class="pull-right btn btn-default"><i class="glyphicon glyphicon-floppy-disk"></i> Crear</button>
 

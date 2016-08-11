@@ -57,7 +57,7 @@ class TodosController extends Controller
         $todo = Todo::create($request->all());
 
         //Guardamos la relación con todos los proyectos
-        $todo->projects()->attach($request->project);
+        $todo->projects()->attach($request->project,['tag' => $request->tag]);
 
         //Regreso a la vista de la que venia
         return back();
