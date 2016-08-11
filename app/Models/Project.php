@@ -18,4 +18,14 @@ class Project extends Model
         //y si no lo hago buscara manager_id
         return $this->belongsTo('\App\User','user_id');
     }
+
+    /**
+     * Método para crear la relación N:M entre proyectos y todos
+     * @return relation
+     */
+    public function todos(){
+        //Le mando como segundo argumento el nombre de la tabla porque no cumple
+        //con las reglas para que laravel la tome automáticamente
+        return $this->belongsToMany('\App\Models\Todo','todo_project');
+    }
 }

@@ -16,4 +16,14 @@ class Todo extends Model
       return $this->hasMany('\App\Models\Comment');
 
     }
+
+    /**
+     * Relación entre un proyecto y un todo
+     * @return relation
+     */
+    public function projects(){
+        //Le mando como segundo argumento el nombre de la tabla porque no cumple
+        //con las reglas para que laravel la tome automáticamente
+        return $this->belongsToMany('\App\Models\Project','todo_project');
+    }
 }
