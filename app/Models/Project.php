@@ -26,6 +26,7 @@ class Project extends Model
     public function todos(){
         //Le mando como segundo argumento el nombre de la tabla porque no cumple
         //con las reglas para que laravel la tome automáticamente
-        return $this->belongsToMany('\App\Models\Todo','todo_project');
+        return $this->belongsToMany('\App\Models\Todo','todo_project')
+                    ->withPivot('tag');
     }
 }
