@@ -72,6 +72,11 @@ Route::group(['middleware' => 'auth'], function(){
 
     //Ruta para eliminar un comentario
     Route::delete('comments/{comment}','CommentsController@destroy');
+
+    //------------------- PROJECTS -------------------------------
+
+    //Ruta para listar los proyectos
+    Route::get('projects', 'ProjectsController@index');
 });
 
 
